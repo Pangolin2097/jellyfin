@@ -2,6 +2,7 @@
   "profiles": {
     "Jellyfin.Server": {
       "commandName": "Project",
+      "commandLineArgs": "-w \"..\\..\\..\\..\\..\\Web\\dist\" --ffmpeg \"..\\..\\..\\..\\ffmpeg\\bin\\ffmpeg.exe\"",
       "launchBrowser": true,
       "applicationUrl": "http://localhost:8096",
       "environmentVariables": {
