@@ -2,7 +2,7 @@
   "profiles": {
     "Jellyfin.Server": {
       "commandName": "Project",
-      "commandLineArgs": "-w \"..\\..\\..\\..\\..\\Web\\dist\" --ffmpeg \"..\\..\\..\\..\\ffmpeg\\bin\\ffmpeg.exe\"",
+      "commandLineArgs": "-w \"..\\..\\Web\\dist\" --ffmpeg \"..\\ffmpeg\\binaries\\ffmpeg.exe\"",
       "launchBrowser": true,
       "applicationUrl": "http://localhost:8096",
       "environmentVariables": {
@@ -11,10 +11,10 @@
     },
     "Jellyfin.Server (nowebclient)": {
       "commandName": "Project",
+      "commandLineArgs": "--nowebclient --ffmpeg \"..\\ffmpeg\\binaries\\ffmpeg.exe\"",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "commandLineArgs": "--nowebclient"
+      }
     },
     "Jellyfin.Server (API Docs)": {
       "commandName": "Project",
