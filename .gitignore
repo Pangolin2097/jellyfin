@@ -280,3 +280,4 @@ mono_crash.*.json
 
 # ffmpeg
 ffmpeg/
+DebugData/Setup.bat
