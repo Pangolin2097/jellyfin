@@ -128,7 +128,7 @@ public class DisplayPreferencesController : BaseJellyfinApiController
             HomeSectionType.Resume,
             HomeSectionType.ResumeAudio,
             HomeSectionType.NextUp,
-            HomeSectionType.None,
+            HomeSectionType.LatestMedia,
             HomeSectionType.None,
             HomeSectionType.None,
             HomeSectionType.None,
