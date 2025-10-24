@@ -124,11 +124,13 @@ public class DisplayPreferencesController : BaseJellyfinApiController
             HomeSectionType.SmallLibraryTiles,
             HomeSectionType.Resume,
             HomeSectionType.ResumeAudio,
-            HomeSectionType.ResumeBook,
-            HomeSectionType.LiveTv,
             HomeSectionType.NextUp,
-            HomeSectionType.LatestMedia,
             HomeSectionType.None,
+            HomeSectionType.None,
+            HomeSectionType.None,
+            HomeSectionType.None,
+            HomeSectionType.None,
+            HomeSectionType.None
         };
 
         if (!Guid.TryParse(displayPreferencesId, out var itemId))
