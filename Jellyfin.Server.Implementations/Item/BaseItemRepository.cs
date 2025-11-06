@@ -1763,7 +1763,8 @@ public sealed class BaseItemRepository
 
         if (!string.IsNullOrWhiteSpace(filter.Path))
         {
-            baseQuery = baseQuery.Where(e => e.Path == filter.Path);
+            var pathToQuery = GetPathToSave(filter.Path);
+            baseQuery = baseQuery.Where(e => e.Path == pathToQuery);
         }
 
         if (!string.IsNullOrWhiteSpace(filter.PresentationUniqueKey))
@@ -2360,17 +2361,23 @@ public sealed class BaseItemRepository
 
         if (filter.HasImdbId.HasValue)
         {
-            baseQuery = baseQuery.Where(e => e.Provider!.Any(f => f.ProviderId == "imdb"));
+            baseQuery = filter.HasImdbId.Value
+                ? baseQuery.Where(e => e.Provider!.Any(f => f.ProviderId.ToLower() == MetadataProvider.Imdb.ToString().ToLower()))
+                : baseQuery.Where(e => e.Provider!.All(f => f.ProviderId.ToLower() != MetadataProvider.Imdb.ToString().ToLower()));
         }
 
         if (filter.HasTmdbId.HasValue)
         {
-            baseQuery = baseQuery.Where(e => e.Provider!.Any(f => f.ProviderId == "tmdb"));
+            baseQuery = filter.HasTmdbId.Value
+                ? baseQuery.Where(e => e.Provider!.Any(f => f.ProviderId.ToLower() == MetadataProvider.Tmdb.ToString().ToLower()))
+                : baseQuery.Where(e => e.Provider!.All(f => f.ProviderId.ToLower() != MetadataProvider.Tmdb.ToString().ToLower()));
         }
 
         if (filter.HasTvdbId.HasValue)
         {
-            baseQuery = baseQuery.Where(e => e.Provider!.Any(f => f.ProviderId == "tvdb"));
+            baseQuery = filter.HasTvdbId.Value
+                ? baseQuery.Where(e => e.Provider!.Any(f => f.ProviderId.ToLower() == MetadataProvider.Tvdb.ToString().ToLower()))
+                : baseQuery.Where(e => e.Provider!.All(f => f.ProviderId.ToLower() != MetadataProvider.Tvdb.ToString().ToLower()));
         }
 
         var queryTopParentIds = filter.TopParentIds;
