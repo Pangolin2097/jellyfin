@@ -62,10 +62,13 @@ namespace Jellyfin.Server.Migrations.Routines
                 HomeSectionType.SmallLibraryTiles,
                 HomeSectionType.Resume,
                 HomeSectionType.ResumeAudio,
-                HomeSectionType.LiveTv,
                 HomeSectionType.NextUp,
-                HomeSectionType.LatestMedia,
                 HomeSectionType.None,
+                HomeSectionType.None,
+                HomeSectionType.None,
+                HomeSectionType.None,
+                HomeSectionType.None,
+                HomeSectionType.None
             };
 
             var chromecastDict = new Dictionary<string, ChromecastVersion>(StringComparer.OrdinalIgnoreCase)
